@@ -17,10 +17,14 @@ class CreateRolesTable extends Migration
             $table->id();
             $table->timestamps();
 
+            $table->string('enable')->default(1);
+
             // Role 권환 이름
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('manager')->nullable();
+
+            $table->unsignedBigInteger('users')->default(0);
 
             // 로그인후 이동페이지
             $table->string('redirect')->nullable();

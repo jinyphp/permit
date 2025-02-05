@@ -9,6 +9,15 @@
             </x-navtab-link>
 
             <x-form-hor>
+                <x-form-label>활성화</x-form-label>
+                <x-form-item>
+                    <input type="checkbox" class="form-check-input"
+                        wire:model="forms.enable"
+                        {{ isset($forms['enable']) && $forms['enable'] ? 'checked' : '' }}>
+                </x-form-item>
+            </x-form-hor>
+
+            <x-form-hor>
                 <x-form-label>역할명</x-form-label>
                 <x-form-item>
                     {!! xInputText()

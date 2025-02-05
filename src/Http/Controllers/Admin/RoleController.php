@@ -1,13 +1,10 @@
 <?php
-
 namespace Jiny\Permit\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
@@ -20,14 +17,18 @@ class RoleController extends AdminController
         $this->setVisit($this);
 
         ##
-        $this->actions['table'] = "roles";
+        $this->actions['table']['name'] = "roles";
         $this->actions['paging'] =  "10";
+
+        $this->actions['view']['layout'] = "jiny-permit::admin.roles.layout";
+        $this->actions['view']['table'] = "jiny-permit::admin.roles.table";
 
         $this->actions['view']['list'] = "jiny-permit::admin.roles.list";
         $this->actions['view']['form'] = "jiny-permit::admin.roles.form";
 
         // 커스텀 레이아웃
         $this->actions['title'] = "회원권환";
+        $this->actions['subtitle'] = "회원의 권한을 관리합니다.";
 
     }
 

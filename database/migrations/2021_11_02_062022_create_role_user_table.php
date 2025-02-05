@@ -19,9 +19,20 @@ class CreateRoleUserTable extends Migration
 
             // M:N 관계설정 필드
             $table->unsignedBigInteger('role_id');
+            $table->string('role')->nullable();
+
             $table->unsignedBigInteger('user_id');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+
+            $table->string('_read')->nullable(); // 목록보기 권환
+            $table->string('_view')->nullable(); // 상세보기 권환
+            $table->string('_write')->nullable(); // 쓰기 권환
+            $table->string('_update')->nullable(); // 수정 권환
+            $table->string('_delete')->nullable(); // 삭제 권환
+
+            // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             // $table->foreignId('role_id')->constrained()->onDelete('casecade');
             //$table->foreignId('user_id')->constrained()->onDelete('casecade');
